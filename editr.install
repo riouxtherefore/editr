@@ -5,6 +5,11 @@
  * Perform actions to set up the site for this profile.
  */
 function editr_install() {
+
+  // Assign user 1 the "administrator" role.
+  db_insert('users_roles')
+    ->fields(array('uid' => 1, 'rid' => 1))
+    ->execute();
   // Update the menu router information.
   menu_rebuild();
   // revert features to ensure they are all installed
@@ -14,6 +19,7 @@ function editr_install() {
     'editr_menu',
     'editr_node_article',
     'editr_site',
+    'editr_panels',
     'editr_users',
     'editr_views'
   );

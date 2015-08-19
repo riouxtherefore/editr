@@ -9,6 +9,7 @@ dependencies[] = strongarm
 features[ckeditor_profile][] = Advanced
 features[ckeditor_profile][] = CKEditor Global Profile
 features[ckeditor_profile][] = Full
+features[filter][] = editor
 features[filter][] = plain_text
 features[image][] = large
 features[image][] = medium

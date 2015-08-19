@@ -6,6 +6,7 @@ dependencies[] = features
 dependencies[] = views
 features[views_view][] = archive
 features[views_view][] = backlinks
+features[views_view][] = content
 features[views_view][] = frontpage
 features[views_view][] = glossary
 features[views_view][] = taxonomy_term
