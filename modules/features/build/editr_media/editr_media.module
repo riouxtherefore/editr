@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Editr Media feature.
+ */
+
+include_once 'editr_media.features.inc';

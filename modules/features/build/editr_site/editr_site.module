@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Editr Site feature.
+ */
+
+include_once 'editr_site.features.inc';

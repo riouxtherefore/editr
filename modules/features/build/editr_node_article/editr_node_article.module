@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Editr Article feature.
+ */
+
+include_once 'editr_node_article.features.inc';

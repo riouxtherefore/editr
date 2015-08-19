@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Editr Users feature.
+ */
+
+include_once 'editr_users.features.inc';

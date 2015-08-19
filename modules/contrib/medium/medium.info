@@ -1,0 +1,12 @@
+name = Medium Editor
+description = Provides a WYSIWYG editor like Medium.com
+core = 7.x
+dependencies[] = libraries
+dependencies[] = wysiwyg
+
+; Information added by Drupal.org packaging script on 2015-01-29
+version = "7.x-1.x-dev"
+core = "7.x"
+project = "medium"
+datestamp = "1422498184"
+

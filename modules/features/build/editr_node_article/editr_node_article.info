@@ -1,0 +1,15 @@
+name = Editr Article
+core = 7.x
+package = Content
+dependencies[] = ctools
+dependencies[] = editr_fields
+dependencies[] = features
+dependencies[] = strongarm
+features[field_instance][] = node-article-body
+features[node][] = article
+features[variable][] = menu_options_article
+features[variable][] = menu_parent_article
+features[variable][] = node_options_article
+features[variable][] = node_preview_article
+features[variable][] = node_submitted_article
+features[features_api][] = api:2

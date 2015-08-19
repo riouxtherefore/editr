@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Editr Views feature.
+ */
+
+include_once 'editr_views.features.inc';

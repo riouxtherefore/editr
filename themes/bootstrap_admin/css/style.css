@@ -1,0 +1,76 @@
+/**
+ * This file should get overwritten if Method 1 is used. If Method 2 is chosen,
+ * remove this comment and start adding your styles to this file.
+ */
+
+ #block-system-management {
+ 	float: left;
+ 	display: inline;
+
+ }
+
+ #block-system-navigation {
+ 	float: left;
+ 	display: inline;
+
+ }
+
+ #block-search-form {
+ 	width: 200px;
+ 	float: right;
+ }
+
+ #page-header {
+ 	height: 50px;
+ }
+
+ #page-header .nav>li>a {
+ 	position: relative;
+ 	display: block;
+ 	padding: 5px 15px;
+ }
+
+ .form-horizontal .form-group {
+ 	margin-right: 15px;
+ 	margin-left: 15px;
+ }
+
+ body.admin-menu {
+ 	margin-top: 30px !important;
+ }
+
+ #block-admin-display-form tbody {
+ 	width: 100%;
+ }
+
+ table#blocks {
+ 	width: 100%;
+ }
+
+ #block-admin-display-form tbody tr.region-title {
+border-bottom: solid #ddd 1px;
+background-color: #f9f9f9;
+
+}
+
+ #block-admin-display-form tbody td {
+ 	padding: 8px;
+ }
+
+ /* Admin menu */
+ #admin-menu, 
+ body.adminimal-menu div#admin-menu a, 
+ body.adminimal-menu div#admin-menu span {
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+ }
+
+  body.adminimal-menu div#admin-menu a:hover {
+
+  }
+
+  
+ @media screen and (max-width: 767px) {
+ 	ul.secondary {
+ 		float: none;
+ 	}
+ }

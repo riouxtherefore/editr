@@ -1,0 +1,66 @@
+; Packaging information for editr
+name = "Editr"
+description = ""
+exclusive = "1"
+core = "7.x"
+; ----------
+; Dependencies
+; ----------
+; Administration
+dependencies[] = admin_menu
+dependencies[] = adminimal_admin_menu
+; Chaos tool suite
+dependencies[] = ctools
+; Core
+dependencies[] = block
+dependencies[] = dblog
+dependencies[] = field
+dependencies[] = field_sql_storage
+dependencies[] = field_ui
+dependencies[] = file
+dependencies[] = filter
+dependencies[] = help
+dependencies[] = image
+dependencies[] = list
+dependencies[] = menu
+dependencies[] = node
+dependencies[] = number
+dependencies[] = options
+dependencies[] = rdf
+dependencies[] = search
+dependencies[] = system
+dependencies[] = taxonomy
+dependencies[] = text
+dependencies[] = update
+dependencies[] = user
+; Development
+dependencies[] = profiler_builder
+dependencies[] = profiler_builder_extras
+; Features extra
+dependencies[] = fe_block
+; Filter
+dependencies[] = simplehtmldom
+; Other
+dependencies[] = entity
+dependencies[] = libraries
+dependencies[] = restws
+dependencies[] = restws_basic_auth
+dependencies[] = strongarm
+; User interface
+dependencies[] = ckeditor
+dependencies[] = ckeditor_skin
+dependencies[] = jquery_update
+; Views
+dependencies[] = views
+; Features
+dependencies[] = features
+dependencies[] = editr_fields
+dependencies[] = editr_media
+dependencies[] = editr_menu
+dependencies[] = editr_node_article
+dependencies[] = editr_site
+dependencies[] = editr_users
+dependencies[] = editr_views
+dependencies[] = features_builder
+dependencies[] = features_builder_default
+

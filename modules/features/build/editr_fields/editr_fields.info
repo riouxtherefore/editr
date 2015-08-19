@@ -1,0 +1,6 @@
+name = Editr Fields
+core = 7.x
+package = Configuration
+dependencies[] = features
+features[field_base][] = body
+features[features_api][] = api:2

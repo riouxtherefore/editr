@@ -1,0 +1,26 @@
+<?php
+/**
+ * Implements hook_install().
+ *
+ * Perform actions to set up the site for this profile.
+ */
+function editr_install() {
+  // Update the menu router information.
+  menu_rebuild();
+  // revert features to ensure they are all installed
+  $features = array(
+    'editr_fields',
+    'editr_media',
+    'editr_menu',
+    'editr_node_article',
+    'editr_site',
+    'editr_users',
+    'editr_views'
+  );
+  features_revert($features);
+  // ignore any rebuild messages
+  // ignore any rebuild messages
+  node_access_needs_rebuild(FALSE);
+  // ignore any other install messages
+  drupal_get_messages();
+}
