@@ -54,9 +54,46 @@ function editr_node_article_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-article-field_machine'
+  $field_instances['node-article-field_machine'] = array(
+    'bundle' => 'article',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'safeword',
+        'settings' => array(),
+        'type' => 'safeword_machine_basic',
+        'weight' => 1,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_machine',
+    'label' => 'Machine',
+    'required' => FALSE,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'safeword',
+      'settings' => array(),
+      'type' => 'safeword_machine_name_only',
+      'weight' => -3,
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('Body');
+  t('Machine');
 
   return $field_instances;
 }

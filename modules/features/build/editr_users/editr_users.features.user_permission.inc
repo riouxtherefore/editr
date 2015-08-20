@@ -59,6 +59,15 @@ function editr_users_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'access contextual links'.
+  $permissions['access contextual links'] = array(
+    'name' => 'access contextual links',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'contextual',
+  );
+
   // Exported permission: 'access resource file'.
   $permissions['access resource file'] = array(
     'name' => 'access resource file',

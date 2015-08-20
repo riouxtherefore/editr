@@ -9,6 +9,7 @@ features[user_permission][] = access administration pages
 features[user_permission][] = access all views
 features[user_permission][] = access content
 features[user_permission][] = access content overview
+features[user_permission][] = access contextual links
 features[user_permission][] = access resource file
 features[user_permission][] = access resource node
 features[user_permission][] = access resource taxonomy_term

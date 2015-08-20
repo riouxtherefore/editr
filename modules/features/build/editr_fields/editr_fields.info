@@ -2,5 +2,7 @@ name = Editr Fields
 core = 7.x
 package = Configuration
 dependencies[] = features
+dependencies[] = safeword
 features[field_base][] = body
+features[field_base][] = field_machine
 features[features_api][] = api:2
