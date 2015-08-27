@@ -11,8 +11,14 @@ dependencies[] = admin_menu
 dependencies[] = adminimal_admin_menu
 ; Chaos tool suite
 dependencies[] = ctools
+dependencies[] = page_manager
+dependencies[] = views_content
+; Context
+dependencies[] = context
+dependencies[] = context_ui
 ; Core
 dependencies[] = block
+dependencies[] = contextual
 dependencies[] = dblog
 dependencies[] = field
 dependencies[] = field_sql_storage
@@ -31,13 +37,17 @@ dependencies[] = search
 dependencies[] = system
 dependencies[] = taxonomy
 dependencies[] = text
-dependencies[] = update
 dependencies[] = user
 ; Development
 dependencies[] = profiler_builder
 dependencies[] = profiler_builder_extras
+; Display Suite
+dependencies[] = ds
 ; Features extra
 dependencies[] = fe_block
+; Fields
+dependencies[] = bootstrap_fieldgroup
+dependencies[] = field_group
 ; Filter
 dependencies[] = simplehtmldom
 ; Other
@@ -45,22 +55,28 @@ dependencies[] = entity
 dependencies[] = libraries
 dependencies[] = restws
 dependencies[] = restws_basic_auth
+dependencies[] = safeword
 dependencies[] = strongarm
+; Panels
+dependencies[] = panels
 ; User interface
 dependencies[] = ckeditor
 dependencies[] = ckeditor_skin
 dependencies[] = jquery_update
 ; Views
 dependencies[] = views
+dependencies[] = views_ui
 ; Features
 dependencies[] = features
+dependencies[] = features_builder
+dependencies[] = features_builder_default
 dependencies[] = editr_fields
+dependencies[] = editr_panels
 dependencies[] = editr_media
 dependencies[] = editr_menu
 dependencies[] = editr_node_article
 dependencies[] = editr_site
 dependencies[] = editr_users
 dependencies[] = editr_views
-dependencies[] = features_builder
-dependencies[] = features_builder_default
+
 

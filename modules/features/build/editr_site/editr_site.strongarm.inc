@@ -104,7 +104,7 @@ function editr_site_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'features_builder_ignore';
-  $strongarm->value = '';
+  $strongarm->value = 'user_role|administrator';
   $export['features_builder_ignore'] = $strongarm;
 
   $strongarm = new stdClass();
