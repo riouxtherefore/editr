@@ -27,6 +27,7 @@ function editr_install() {
     'editr_media',
     'editr_menu',
     'editr_node_article',
+    'editr_taxonomy',
     'editr_site',
     'editr_panels',
     'editr_users',

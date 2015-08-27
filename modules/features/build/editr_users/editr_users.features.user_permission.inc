@@ -472,6 +472,13 @@ function editr_users_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'delete terms in tags'.
+  $permissions['delete terms in tags'] = array(
+    'name' => 'delete terms in tags',
+    'roles' => array(),
+    'module' => 'taxonomy',
+  );
+
   // Exported permission: 'display drupal links'.
   $permissions['display drupal links'] = array(
     'name' => 'display drupal links',
@@ -497,6 +504,13 @@ function editr_users_user_default_permissions() {
       'editor' => 'editor',
     ),
     'module' => 'node',
+  );
+
+  // Exported permission: 'edit terms in tags'.
+  $permissions['edit terms in tags'] = array(
+    'name' => 'edit terms in tags',
+    'roles' => array(),
+    'module' => 'taxonomy',
   );
 
   // Exported permission: 'flush caches'.

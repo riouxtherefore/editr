@@ -13,9 +13,6 @@ dependencies[] = adminimal_admin_menu
 dependencies[] = ctools
 dependencies[] = page_manager
 dependencies[] = views_content
-; Context
-dependencies[] = context
-dependencies[] = context_ui
 ; Core
 dependencies[] = block
 dependencies[] = contextual
@@ -70,10 +67,12 @@ dependencies[] = views_ui
 dependencies[] = features
 dependencies[] = features_builder
 dependencies[] = features_builder_default
+; Editr Features
 dependencies[] = editr_fields
 dependencies[] = editr_panels
 dependencies[] = editr_media
 dependencies[] = editr_menu
+dependencies[] = editr_taxonomy
 dependencies[] = editr_node_article
 dependencies[] = editr_site
 dependencies[] = editr_users
