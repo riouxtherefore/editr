@@ -40,6 +40,8 @@ dependencies[] = profiler_builder
 dependencies[] = profiler_builder_extras
 ; Display Suite
 dependencies[] = ds
+dependencies[] = ds_bootstrap_layouts
+dependencies[] = ds_ui
 ; Features extra
 dependencies[] = fe_block
 ; Fields
@@ -62,6 +64,7 @@ dependencies[] = ckeditor_skin
 dependencies[] = jquery_update
 ; Views
 dependencies[] = views
+dependencies[] = views_bootstrap
 dependencies[] = views_ui
 ; Features
 dependencies[] = features
