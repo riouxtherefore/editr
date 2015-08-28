@@ -52,6 +52,7 @@
   <?php print $head; ?>
   <title><?php print $head_title; ?></title>
   <?php print $styles; ?>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300italic,600italic,300,400italic,700italic|Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
   <!-- HTML5 element support for IE6-8 -->
   <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>

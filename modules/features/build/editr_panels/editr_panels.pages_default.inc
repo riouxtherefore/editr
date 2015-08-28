@@ -163,35 +163,6 @@ function editr_panels_default_page_manager_pages() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-4180cda9-c8c8-4a52-af2f-0a4cda30baa9';
-    $pane->panel = 'middle';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'admin_title' => '',
-      'title' => '',
-      'body' => '<p>Welcome to your content dashboard. Here you\'ll find the content you have created.</p>
-',
-      'format' => 'editor',
-      'substitute' => TRUE,
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => 'region region-help alert alert-info',
-    );
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = '4180cda9-c8c8-4a52-af2f-0a4cda30baa9';
-    $display->content['new-4180cda9-c8c8-4a52-af2f-0a4cda30baa9'] = $pane;
-    $display->panels['middle'][0] = 'new-4180cda9-c8c8-4a52-af2f-0a4cda30baa9';
-    $pane = new stdClass();
     $pane->pid = 'new-a8a259cc-fe72-4442-9d96-4a744ec250e5';
     $pane->panel = 'middle';
     $pane->type = 'views_panes';
@@ -205,11 +176,11 @@ function editr_panels_default_page_manager_pages() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 1;
+    $pane->position = 0;
     $pane->locks = array();
     $pane->uuid = 'a8a259cc-fe72-4442-9d96-4a744ec250e5';
     $display->content['new-a8a259cc-fe72-4442-9d96-4a744ec250e5'] = $pane;
-    $display->panels['middle'][1] = 'new-a8a259cc-fe72-4442-9d96-4a744ec250e5';
+    $display->panels['middle'][0] = 'new-a8a259cc-fe72-4442-9d96-4a744ec250e5';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;

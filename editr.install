@@ -32,6 +32,7 @@ function editr_install() {
     'editr_panels',
     'editr_users',
     'editr_views'
+
   );
   features_revert($features);
   // ignore any rebuild messages

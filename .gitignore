@@ -1,0 +1,4 @@
+themes/bootstrap_editor/node_modules/*
+themes/bootstrap_editor/node_modules
+themes/bootstrap_editor/.sass-cache
+themes/bootstrap_editor/.sass-cache/*

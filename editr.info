@@ -80,5 +80,6 @@ dependencies[] = editr_node_article
 dependencies[] = editr_site
 dependencies[] = editr_users
 dependencies[] = editr_views
+dependencies[] = editr_appendix
 
 
