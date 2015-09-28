@@ -1,0 +1,189 @@
+diff --git a/js/misc/states.js b/js/misc/states.js
+new file mode 100644
+index 0000000..a896008
+--- /dev/null
++++ b/js/misc/states.js
+@@ -0,0 +1,24 @@
++(function($) {
++  // Unbind core state.js from document first so we can then override below.
++  $(document).unbind('state:disabled');
++
++  /**
++   * Global state change handlers. These are bound to "document" to cover all
++   * elements whose state changes. Events sent to elements within the page
++   * bubble up to these handlers. We use this system so that themes and modules
++   * can override these state change handlers for particular parts of a page.
++   */
++  $(document).bind('state:disabled', function(e) {
++    // Only act when this change was triggered by a dependency and not by the
++    // element monitoring itself.
++    if (e.trigger) {
++      $(e.target)
++        .attr('disabled', e.value)
++        .closest('.form-item, .form-submit, .form-wrapper').toggleClass('form-disabled', e.value)
++        .find(':input').attr('disabled', e.value);
++
++      // Note: WebKit nightlies don't reflect that change correctly.
++      // See https://bugs.webkit.org/show_bug.cgi?id=23789
++    }
++  });
++})(jQuery);
+diff --git a/js/modules/dashboard/dashboard.js b/js/modules/dashboard/dashboard.js
+new file mode 100644
+index 0000000..8d2c3ff
+--- /dev/null
++++ b/js/modules/dashboard/dashboard.js
+@@ -0,0 +1,27 @@
++(function ($) {
++  // Override core JS so it works with "button" tags.
++  if (Drupal.behaviors.dashboard && Drupal.behaviors.dashboard.setupDrawer) {
++    /**
++     * Sets up the drag-and-drop behavior and the 'close' button.
++     */
++    Drupal.behaviors.dashboard.setupDrawer = function () {
++      $('div.customize .canvas-content :input').click(Drupal.behaviors.dashboard.exitCustomizeMode);
++      $('div.customize .canvas-content').append('<a class="button" href="' + Drupal.settings.dashboard.dashboard + '">' + Drupal.t('Done') + '</a>');
++      // Initialize drag-and-drop.
++      var regions = $('#dashboard div.region');
++      regions.sortable({
++        connectWith: regions,
++        cursor: 'move',
++        cursorAt: {top:0},
++        dropOnEmpty: true,
++        items: '> div.block, > div.disabled-block',
++        placeholder: 'block-placeholder clearfix',
++        tolerance: 'pointer',
++        start: Drupal.behaviors.dashboard.start,
++        over: Drupal.behaviors.dashboard.over,
++        sort: Drupal.behaviors.dashboard.sort,
++        update: Drupal.behaviors.dashboard.update
++      });
++    };
++  }
++})(jQuery);
+diff --git a/js/modules/field_ui/field_ui.js b/js/modules/field_ui/field_ui.js
+new file mode 100644
+index 0000000..1eafd02
+--- /dev/null
++++ b/js/modules/field_ui/field_ui.js
+@@ -0,0 +1,43 @@
++(function ($) {
++  // Override core JS so it works with "button" tags.
++  if (Drupal.fieldUIOverview && Drupal.fieldUIOverview.AJAXRefreshRows) {
++    /**
++     * Triggers Ajax refresh of selected rows.
++     *
++     * The 'format type' selects can trigger a series of changes in child rows.
++     * The #ajax behavior is therefore not attached directly to the selects, but
++     * triggered manually through a hidden #ajax 'Refresh' button.
++     *
++     * @param rows
++     *   A hash object, whose keys are the names of the rows to refresh (they
++     *   will receive the 'ajax-new-content' effect on the server side), and
++     *   whose values are the DOM element in the row that should get an Ajax
++     *   throbber.
++     */
++    Drupal.fieldUIOverview.AJAXRefreshRows = function (rows) {
++      // Separate keys and values.
++      var rowNames = [];
++      var ajaxElements = [];
++      $.each(rows, function (rowName, ajaxElement) {
++        rowNames.push(rowName);
++        ajaxElements.push(ajaxElement);
++      });
++
++      if (rowNames.length) {
++        // Add a throbber next each of the ajaxElements.
++        var $throbber = $('<div class="ajax-progress ajax-progress-throbber"><div class="throbber">&nbsp;</div></div>');
++        $(ajaxElements)
++          .addClass('progress-disabled')
++          .after($throbber);
++
++        // Fire the Ajax update.
++        $(':input[name=refresh_rows]').val(rowNames.join(' '));
++        $(':input#edit-refresh').mousedown();
++
++        // Disabled elements do not appear in POST ajax data, so we mark the
++        // elements disabled only after firing the request.
++        $(ajaxElements).attr('disabled', true);
++      }
++    };
++  }
++})(jQuery);
+diff --git a/js/modules/file/file.js b/js/modules/file/file.js
+new file mode 100644
+index 0000000..edc485a
+--- /dev/null
++++ b/js/modules/file/file.js
+@@ -0,0 +1,71 @@
++(function ($) {
++  // Override core JS so it works with "button" tags.
++  /**
++   * Attach behaviors to the file upload and remove buttons.
++   */
++  Drupal.behaviors.fileButtons = {
++    attach: function (context) {
++      $(':input.form-submit', context).bind('mousedown', Drupal.file.disableFields);
++      $('div.form-managed-file :input.form-submit', context).bind('mousedown', Drupal.file.progressBar);
++    },
++    detach: function (context) {
++      $(':input.form-submit', context).unbind('mousedown', Drupal.file.disableFields);
++      $('div.form-managed-file :input.form-submit', context).unbind('mousedown', Drupal.file.progressBar);
++    }
++  };
++  if (Drupal.file) {
++    /**
++     * Prevent file uploads when using buttons not intended to upload.
++     */
++    Drupal.file.disableFields = function (event){
++      var clickedButton = this;
++
++      // Only disable upload fields for Ajax buttons.
++      if (!$(clickedButton).hasClass('ajax-processed')) {
++        return;
++      }
++
++      // Check if we're working with an "Upload" button.
++      var $enabledFields = [];
++      if ($(this).closest('div.form-managed-file').length > 0) {
++        $enabledFields = $(this).closest('div.form-managed-file').find(':input.form-file');
++      }
++
++      // Temporarily disable upload fields other than the one we're currently
++      // working with. Filter out fields that are already disabled so that they
++      // do not get enabled when we re-enable these fields at the end of behavior
++      // processing. Re-enable in a setTimeout set to a relatively short amount
++      // of time (1 second). All the other mousedown handlers (like Drupal's Ajax
++      // behaviors) are excuted before any timeout functions are called, so we
++      // don't have to worry about the fields being re-enabled too soon.
++      // @todo If the previous sentence is true, why not set the timeout to 0?
++      var $fieldsToTemporarilyDisable = $('div.form-managed-file :input.form-file').not($enabledFields).not(':disabled');
++      $fieldsToTemporarilyDisable.attr('disabled', 'disabled');
++      setTimeout(function (){
++        $fieldsToTemporarilyDisable.attr('disabled', false);
++      }, 1000);
++    };
++    /**
++     * Add progress bar support if possible.
++     */
++    Drupal.file.progressBar = function (event) {
++      var clickedButton = this;
++      var $progressId = $(clickedButton).closest('div.form-managed-file').find(':input.file-progress');
++      if ($progressId.length) {
++        var originalName = $progressId.attr('name');
++
++        // Replace the name with the required identifier.
++        $progressId.attr('name', originalName.match(/APC_UPLOAD_PROGRESS|UPLOAD_IDENTIFIER/)[0]);
++
++        // Restore the original name after the upload begins.
++        setTimeout(function () {
++          $progressId.attr('name', originalName);
++        }, 1000);
++      }
++      // Show the progress bar if the upload takes longer than half a second.
++      setTimeout(function () {
++        $(clickedButton).closest('div.form-managed-file').find('div.ajax-progress-bar').slideDown();
++      }, 500);
++    };
++  }
++})(jQuery);
