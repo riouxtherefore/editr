@@ -28,6 +28,9 @@ projects[features][subdir] = "contrib"
 projects[features_extra][version] = "1.0-beta1"
 projects[features_extra][subdir] = "contrib"
 
+projects[cors][version] = "1.3"
+projects[cors][subdir] = "contrib"
+
 projects[simplehtmldom][version] = "1.12"
 projects[simplehtmldom][subdir] = "contrib"
 
