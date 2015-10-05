@@ -51,6 +51,7 @@ dependencies[] = field_group
 dependencies[] = simplehtmldom
 ; Other
 dependencies[] = entity
+dependencies[] = file_entity
 dependencies[] = libraries
 dependencies[] = restws
 dependencies[] = restws_basic_auth
@@ -81,6 +82,7 @@ dependencies[] = editr_node_article
 dependencies[] = editr_site
 dependencies[] = editr_users
 dependencies[] = editr_views
+
 
 
 
