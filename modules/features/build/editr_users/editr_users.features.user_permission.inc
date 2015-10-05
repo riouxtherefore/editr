@@ -68,6 +68,16 @@ function editr_users_user_default_permissions() {
     'module' => 'contextual',
   );
 
+  // Exported permission: 'access resource field_collection_item'.
+  $permissions['access resource field_collection_item'] = array(
+    'name' => 'access resource field_collection_item',
+    'roles' => array(
+      'anonymous user' => 'anonymous user',
+      'authenticated user' => 'authenticated user',
+    ),
+    'module' => 'restws',
+  );
+
   // Exported permission: 'access resource file'.
   $permissions['access resource file'] = array(
     'name' => 'access resource file',
@@ -457,6 +467,7 @@ function editr_users_user_default_permissions() {
   $permissions['create article content'] = array(
     'name' => 'create article content',
     'roles' => array(
+      'administrator' => 'administrator',
       'editor' => 'editor',
     ),
     'module' => 'node',
@@ -475,6 +486,7 @@ function editr_users_user_default_permissions() {
   $permissions['delete any article content'] = array(
     'name' => 'delete any article content',
     'roles' => array(
+      'administrator' => 'administrator',
       'editor' => 'editor',
     ),
     'module' => 'node',
@@ -484,6 +496,7 @@ function editr_users_user_default_permissions() {
   $permissions['delete own article content'] = array(
     'name' => 'delete own article content',
     'roles' => array(
+      'administrator' => 'administrator',
       'editor' => 'editor',
     ),
     'module' => 'node',
@@ -502,7 +515,9 @@ function editr_users_user_default_permissions() {
   // Exported permission: 'delete terms in tags'.
   $permissions['delete terms in tags'] = array(
     'name' => 'delete terms in tags',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'taxonomy',
   );
 
@@ -519,6 +534,7 @@ function editr_users_user_default_permissions() {
   $permissions['edit any article content'] = array(
     'name' => 'edit any article content',
     'roles' => array(
+      'administrator' => 'administrator',
       'editor' => 'editor',
     ),
     'module' => 'node',
@@ -528,6 +544,7 @@ function editr_users_user_default_permissions() {
   $permissions['edit own article content'] = array(
     'name' => 'edit own article content',
     'roles' => array(
+      'administrator' => 'administrator',
       'editor' => 'editor',
     ),
     'module' => 'node',
@@ -536,7 +553,9 @@ function editr_users_user_default_permissions() {
   // Exported permission: 'edit terms in tags'.
   $permissions['edit terms in tags'] = array(
     'name' => 'edit terms in tags',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'taxonomy',
   );
 
@@ -684,6 +703,18 @@ function editr_users_user_default_permissions() {
       'editor' => 'editor',
     ),
     'module' => 'filter',
+  );
+
+  // Exported permission: 'view all files'.
+  $permissions['view all files'] = array(
+    'name' => 'view all files',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'anonymous user' => 'anonymous user',
+      'authenticated user' => 'authenticated user',
+      'editor' => 'editor',
+    ),
+    'module' => 'file_entity',
   );
 
   // Exported permission: 'view own unpublished content'.

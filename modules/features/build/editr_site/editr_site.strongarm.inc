@@ -216,7 +216,7 @@ function editr_site_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'site_mail';
-  $strongarm->value = 'sean@therefore.ca';
+  $strongarm->value = 'clement@therefore.ca';
   $export['site_mail'] = $strongarm;
 
   $strongarm = new stdClass();
