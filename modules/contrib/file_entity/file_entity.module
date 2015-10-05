@@ -442,6 +442,9 @@ function file_entity_permission() {
     'view files' => array(
       'title' => t('View files'),
     ),
+    'view all files' => array(
+      'title' => t('View all Files'),
+    ),
   );
 
   // Add description for the 'View file details' and 'View own private file
@@ -1670,6 +1673,9 @@ function file_entity_access($op, $file = NULL, $account = NULL) {
     return $rights[$account->uid][$cache_id][$op] = TRUE;
   }
  
+  if(user_access('view all files',$account) && $file === null && $op == 'view') {
+    return true;
+  }
   // We grant access to the file if both of the following conditions are met:
   // - No modules say to deny access.
   // - At least one module says to grant access.
