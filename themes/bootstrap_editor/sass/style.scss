@@ -28,6 +28,12 @@
     padding: 5px 15px;
 }
 
+iframe {
+    width: 100%;
+    border: 0px solid #ddd;
+    min-height: 1000px;
+}
+
 .views-exposed-widgets {
     border: 1px #ddd solid;
     padding: 1em;
